@@ -1,11 +1,14 @@
 {
-  "ValidateBamsWf.bam_list": [ 
+  "##Comment1":"Input",
+  "ValidateBamsWf.bam_array": [ 
   	"gs://gatk-test-data/wgs_bam/NA12878_24RG_hg38/NA12878_24RG_small.hg38.bam",
   	"gs://gatk-test-data/wgs_bam/NA12878_24RG_hg38/NA12878_24RG_med.hg38.bam"
   ],
 
   "ValidateBamsWf.ValidateBAM.validation_mode": "SUMMARY",
-
+  "##Comment2":"Runtime",
   "ValidateBamsWf.ValidateBAM.mem_size": "1 GB",
-  "ValidateBamsWf.ValidateBAM.disk_size": 100
+  "ValidateBamsWf.ValidateBAM.disk_size": 100,
+  "ValidateBamsWf.ValidateBAM.gatk_path": "/gatk/gatk",
+  "ValidateBamsWf.gatk_docker": "us.gcr.io/broad-gatk/gatk:4.0.4.0"
 }
