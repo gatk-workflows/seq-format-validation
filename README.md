@@ -11,7 +11,7 @@ Workflows for validating sequence data
  - Set of .txt files containing the validation reports, one per input file
 
 ### Cromwell version support 
- - Successfully tested on v312
+ - Successfully tested on v32
  - Does not work on versions < v23 due to output syntax
 
  Runtime parameters are optimized for Broad's Google Cloud Platform implementation. 
