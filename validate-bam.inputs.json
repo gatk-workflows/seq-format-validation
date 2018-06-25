@@ -9,6 +9,6 @@
   "##Comment2":"Runtime",
   "ValidateBamsWf.ValidateBAM.mem_size": "1 GB",
   "ValidateBamsWf.ValidateBAM.disk_size": 100,
-  "ValidateBamsWf.ValidateBAM.gatk_path": "/gatk/gatk",
-  "ValidateBamsWf.gatk_docker": "us.gcr.io/broad-gatk/gatk:4.0.4.0"
+  "##ValidateBamsWf.ValidateBAM.gatk_path": "String (optional)",
+  "##ValidateBamsWf.gatk_docker": "String (optional)"
 }
