@@ -29,6 +29,8 @@ workflow ValidateBamsWf {
   Array[File] bam_array 
   String? gatk_docker
   String gatk_image = select_first([gatk_docker, "broadinstitute/gatk:latest"])
+  String? gatk_path
+  String gatk_launch_path = select_first([gatk_path, "/gatk/gatk"])
 
   # Process the input files in parallel
   scatter (input_bam in bam_array) {
@@ -41,7 +43,8 @@ workflow ValidateBamsWf {
       input:
         bam_file = input_bam,
         output_basename = bam_basename + ".validation",
-        docker = gatk_image
+        docker = gatk_image,
+        gatk_path = gatk_launch_path
     }
   }
 
