@@ -41,7 +41,7 @@ workflow ValidateBamsWf {
     # Run the validation 
     call ValidateBAM {
       input:
-        bam_file = input_bam,
+        input_bam = input_bam,
         output_basename = bam_basename + ".validation",
         docker = gatk_docker,
         gatk_path = gatk_path
@@ -58,29 +58,32 @@ workflow ValidateBamsWf {
 
 # Validate a SAM or BAM using Picard ValidateSamFile
 task ValidateBAM {
-  File bam_file
+  # Command parameters
+  File input_bam
   String output_basename
-  String validation_mode
+  String? validation_mode
   String gatk_path
   
-  Int disk_size
-  String mem_size
+  # Runtime parameters
   String docker
+  Int? machine_mem_gb
+  Int? disk_space_gb
+  Int disk_size = ceil(size(input_bam, "GB")) + 20
 
   String output_name = "${output_basename}_${validation_mode}.txt"
-
+ 
   command {
     ${gatk_path} \
       ValidateSamFile \
-      --INPUT ${bam_file} \
+      --INPUT ${input_bam} \
       --OUTPUT ${output_name} \
-      --MODE ${validation_mode}
+      --MODE ${default="SUMMARY" validation_mode}
   }
   runtime {
     docker: docker
-    memory: mem_size
+    memory: select_first([machine_mem_gb, 1]) + " GB"
     cpu: "1"
-    disks: "local-disk " + disk_size + " HDD"
+    disks: "local-disk " + select_first([disk_space_gb, disk_size]) + " HDD"
   }
   output {
     File validation_report = "${output_name}"
