@@ -12,5 +12,3 @@
   "#ValidateBamsWf.ValidateBAM.disk_space_gb": "Int? (optional)",
   "#ValidateBamsWf.ValidateBAM.gatk_path_override": "String (optional)",
   "#ValidateBamsWf.gatk_docker_override": "String (optional)"
-}
-
