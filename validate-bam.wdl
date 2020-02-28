@@ -68,7 +68,7 @@ task ValidateBAM {
   
     # Runtime parameters
     String docker
-    Int machine_mem_gb = 1
+    Int machine_mem_gb = 4
     Int addtional_disk_space_gb = 50
   }
     
