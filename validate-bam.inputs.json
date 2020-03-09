@@ -1,15 +1,6 @@
 {
-  "##Comment1":"Input",
   "ValidateBamsWf.bam_array": [ 
   	"gs://gatk-test-data/wgs_bam/NA12878_24RG_hg38/NA12878_24RG_small.hg38.bam",
   	"gs://gatk-test-data/wgs_bam/NA12878_24RG_hg38/NA12878_24RG_med.hg38.bam"
-  ],
-  "##Comment2":"Parameter",
-  "#ValidateBamsWf.ValidateBAM.validation_mode": "String (optional)",
-
-  "##Comment3":"Runtime - uncomment the lines below and supply a valid docker container to override the default",
-  "#ValidateBamsWf.ValidateBAM.machine_mem_gb": "Int? (optional)",  
-  "#ValidateBamsWf.ValidateBAM.disk_space_gb": "Int? (optional)",
-  "#ValidateBamsWf.ValidateBAM.gatk_path_override": "String (optional)",
-  "#ValidateBamsWf.gatk_docker_override": "String (optional)"
+  ]
 }
